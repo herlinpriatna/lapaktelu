@@ -115,7 +115,7 @@
             <div class="produk-item">
               <a href="detail_produk.html" class="text-decoration-none">
                 <div class="card m-3" style="width: 18rem">
-                  <img src="{{ asset('images/' . $product->gambar) }}" class="card-img-top" style="min-height: 300px" />
+                  <img src="{{ asset('images/' . $product->gambar) }}" class="card-img-top" style="max-height: 300px" />
                   <div class="card-body">
                     <h5 class="card-title">{{ $product->nama }}</h5>
                     <p class="card-text">Rp{{ $product->harga }}</p>

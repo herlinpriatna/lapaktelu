@@ -2,12 +2,12 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid justify-content-center">
             <!-- logo -->
-            <a class="navbar-brand d-flex ps-4" href="#">
-                <img href="" src="{{url('img/logo-lapak-telu.png')}}" alt="" width="60">
+            <a class="navbar-brand d-flex ps-4" href="/home">
+                <img  src="{{url('img/logo-lapak-telu.png')}}" alt="" width="60">
             </a>
 
             <div class="d-flex flex-column">
-                <a class="text-white fs-5 fw-bold text-start text-decoration-none" href="">
+                <a class="text-white fs-5 fw-bold text-start text-decoration-none" href="/home">
                     LAPAK TEL-U
                 </a>
             </div>
