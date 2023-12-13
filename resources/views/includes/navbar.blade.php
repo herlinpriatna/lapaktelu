@@ -58,6 +58,7 @@
                     <a href="#" class="text-white text-decoration-none px-4 py-2">
                         {{ Auth::user()->username }}
                     </a>
+                    
                 @endguest
                     </div>
                 </div>
