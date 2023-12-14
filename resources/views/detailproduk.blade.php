@@ -6,13 +6,13 @@
 <div class="container pt-4 mt-4">
     <div class="row pt-3 mt-3">
         <div class="col py-3 my-3">
-            <img src="{{ asset('images/' . $produkList->gambar) }}" alt="Foto Produk" class="rounded img-fluid" style="height: 100%; width: 100%" />
+            <img src="{{ asset('images/' . $produks->gambar) }}" alt="Foto Produk" class="rounded img-fluid" style="height: 100%; width: 100%" />
         </div>
     </div>
 
     <div class="d-flex justify-content-between">
         <div class="text-md-start">
-            <button type="button" class="btn btn-lg btn-outline-primary">{{ $produkList->nama }}</button>
+            <button type="button" class="btn btn-lg btn-outline-primary">{{ $kategoris->name }}</button>
         </div>
         <div class="text-md-end">
             <button type="button" class="btn btn-lg btn-outline-dark" data-bs-toggle="modal" data-bs-target="#bagikan"><i class="fas fa-share"></i> Bagikan</button>
@@ -21,8 +21,8 @@
     </div>
 
     <div style="line-height: 25px">
-        <h5 class="card-title">{{ $product->nama }}</h5>
-        <p class="card-text">Rp{{ $product->harga }}</p>
+        <h5 class="card-title">{{ $produks->nama }}</h5>
+        <p class="card-text">Rp{{ $produks->harga }}</p>
     </div>
 
     <div class="mt-4">
@@ -32,7 +32,7 @@
         </div>
         <div class="d-flex justify-content-between">
             <div>
-                <button type="button" class="btn btn-lg btn-outline-secondary text-start" style="width: 220px" disabled>{{ $kondisis->nama }}</button>
+                <button type="button" class="btn btn-lg btn-outline-secondary text-start" style="width: 220px" disabled>{{ $kondisis->name }}</button>
             </div>
             <div class="">
                 <a href="#" type="button" class="btn btn-lg btn-primary fw-bold">Chat Sekarang</a>
@@ -55,7 +55,7 @@
 
     <p class="fs-2 fw-bold py-2">Deskripsi</p>
     <p class="fs-4 pb-5">
-        {{ $product->deskripsi }}
+        {{ $produks->deskripsi }}
     </p>
 </div>
 
