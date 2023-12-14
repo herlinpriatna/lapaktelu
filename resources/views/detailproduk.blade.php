@@ -3,16 +3,19 @@
 @section('judul', 'Detail Produk')
 
 @section('content')
+
 <div class="container pt-4 mt-4">
+
+
     <div class="row pt-3 mt-3">
         <div class="col py-3 my-3">
-            <img src="{{ asset('images/' . $produks->gambar) }}" alt="Foto Produk" class="rounded img-fluid" style="height: 100%; width: 100%" />
+            <img src="{{ asset('images/' . $produk->gambar) }}" alt="Foto Produk" class="rounded img-fluid" style="height: 100%; width: 100%" />
         </div>
     </div>
 
     <div class="d-flex justify-content-between">
         <div class="text-md-start">
-            <button type="button" class="btn btn-lg btn-outline-primary">{{ $kategoris->name }}</button>
+            <button type="button" class="btn btn-lg btn-outline-primary">{{ $kategori->name }}</button>
         </div>
         <div class="text-md-end">
             <button type="button" class="btn btn-lg btn-outline-dark" data-bs-toggle="modal" data-bs-target="#bagikan"><i class="fas fa-share"></i> Bagikan</button>
@@ -21,8 +24,8 @@
     </div>
 
     <div style="line-height: 25px">
-        <h5 class="card-title">{{ $produks->nama }}</h5>
-        <p class="card-text">Rp{{ $produks->harga }}</p>
+        <h5 class="card-title">{{ $produk->nama }}</h5>
+        <p class="card-text">Rp{{ $produk->harga }}</p>
     </div>
 
     <div class="mt-4">
@@ -32,7 +35,7 @@
         </div>
         <div class="d-flex justify-content-between">
             <div>
-                <button type="button" class="btn btn-lg btn-outline-secondary text-start" style="width: 220px" disabled>{{ $kondisis->name }}</button>
+                <button type="button" class="btn btn-lg btn-outline-secondary text-start" style="width: auto" disabled>{{ $kondisi->name }}</button>
             </div>
             <div class="">
                 <a href="#" type="button" class="btn btn-lg btn-primary fw-bold">Chat Sekarang</a>
@@ -43,11 +46,11 @@
 
     <div class="box-profil d-flex justify-content-between p-3 align-items-center border rounded my-4">
         <div class="profil d-flex align-items-center">
-            <img src="img/user.png" alt="" class="me-3 img-fluid" style="width: 80px; height: 80px" />
+            <img src="{{ asset('images/' . $user->fotoProfil) }}" alt="" class="me-3 img-fluid" style="width: 80px; height: 80px" />
             <div class="text">
-                <p class="m-0 fs-4 fw-bold">{{Auth::user()->namalengkap}}</p>
-                <p class="m-0 fs-5">{{Auth::user()->username}}</p>
-                <p class="m-0 fs-5">{{Auth::user()->alamat}}</p>
+                <p class="m-0 fs-4 fw-bold">{{ $user->namalengkap }}</p>
+                <p class="m-0 fs-5">{{ $user->username }}</p>
+                <p class="m-0 fs-5">{{ $user->alamat }}</p>
             </div>
         </div>
         <a href="#" class="btn btn-primary my-3 fw-bold me-3" style="width: 120px; height: 50px; background-color: #3570d6; display: flex; align-items: center; justify-content: center">Lihat Profil</a>
@@ -55,7 +58,7 @@
 
     <p class="fs-2 fw-bold py-2">Deskripsi</p>
     <p class="fs-4 pb-5">
-        {{ $produks->deskripsi }}
+        {{ $produk->deskripsi }}
     </p>
 </div>
 
