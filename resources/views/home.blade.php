@@ -142,12 +142,9 @@
         @endif
       @endforeach
       
-      <section class="container text-center m-5">
-        <button class="btn btn-primary text-center fs-4 fw-medium" style="width: 200px; height: 60px; background-color: #3570d6">Lihat Semua</button>
-      </section>
-      <form action="{{ route('logout') }}" method="POST">
-        @csrf
-        <button type="submit">Logout</button>
-      </form>
     </section>
+    <form action="{{ route('logout') }}" method="POST">
+      @csrf
+      <button type="submit" class="btn btn-primary">Logout</button>
+    </form>
 @endsection
