@@ -9,6 +9,7 @@
 @foreach($produkList as $product)
 @if ($product->status == 'accepted')
 <div class="container produk-item pt-5">
+    <h2 class="mb-4 mt-4">Hasil Pencarian</h1>
     <a href="{{route('produk.show', ['id' => $product->id, 'nama' => $product->nama])}}" class="text-decoration-none">
         <div class="card m-3" style="width: 18rem">
             <img src="{{ asset('images/' . $product->gambar) }}" class="card-img-top" style="max-height: 300px" />
