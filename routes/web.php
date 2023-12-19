@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -65,4 +66,8 @@ Route::post('/admin/confirm-product/{productId}', [AdminController::class, 'conf
 Route::get('/home', [HomeController::class, 'showConfirmedProducts'])->name('home.show.confirmed.products');
 
 // Rute untuk menampilkan halaman detail produk
-Route::get('/produk/{id}', [DetailProdukController::class, 'show'])->name('produk.show');
+Route::get('/produk/{id}/{nama}', [DetailProdukController::class, 'show'])->name('produk.show');
+
+// Rute untuk tombol search
+Route::get('/home', [SearchController::class, 'index'])->name('home');
+Route::get('/search', [SearchController::class, 'search'])->name('produk.search');

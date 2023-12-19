@@ -10,16 +10,19 @@ use App\Models\Kategori;
 
 class DetailProdukController extends Controller
 {
-    public function show($id)
+    public function show($id, $nama)
     {
         $produk = Produk::find($id);
 
-        $user = User::find($produk->user_id);
+        if ($produk && $produk->nama == $nama) {
+            $user = User::find($produk->user_id);
+            $kondisi = Kondisi::find($produk->kondisi_id);
+            $kategori = Kategori::find($produk->kategori_id);
 
-        $kondisi = Kondisi::find($produk->kondisi_id);
-        
-        $kategori = Kategori::find($produk->kategori_id);
-
-        return view('detailproduk', compact('produk', 'user', 'kondisi', 'kategori'));
+            return view('detailproduk', compact('produk', 'user', 'kondisi', 'kategori'));
+        } else {
+            return abort(404);
+        }
     }
+    
 }
