@@ -28,5 +28,29 @@ class AdminController extends Controller
         }
 
     return redirect('/admin')->with('error', 'Produk tidak ditemukan.');
-}
+    }
+
+    public function rejectProduct($productId){
+        $product = Produk::find($productId);
+
+        if ($product) {
+            $product->status = 'rejected';
+            $product->save();
+
+            return redirect('/admin')->with('success', 'Produk berhasil ditolak');
+        }
+    }
+
+    public function cancelConfirm($productId){
+        $product = Produk::find($productId);
+
+        if ($product) {
+            $product->status = 'pending';
+            $product->save();
+
+            return redirect('/admin')->with('success', 'Produk berhasil dibatalkan');
+        }
+    }
+    
+    
 }

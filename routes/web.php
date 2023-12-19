@@ -45,6 +45,8 @@ Route::post('/jual', [JualController::class, 'store'])->name('jual');
 
 // Rute untuk konfirmasi produk
 Route::post('/admin/confirm-product/{productId}', [AdminController::class, 'confirmProduct'])->name('admin.confirm.product');
+Route::post('/admin/reject-product/{productId}', [AdminController::class, 'rejectProduct'])->name('admin.reject.product');
+Route::post('/admin/cancel-product/{productId}', [AdminController::class, 'cancelConfirm'])->name('admin.cancel.product');
 
 // Rute untuk menampilkan produk yang telah dikonfirmasi di halaman home
 Route::get('/home', [HomeController::class, 'showConfirmedProducts'])->name('home.show.confirmed.products');
@@ -55,3 +57,5 @@ Route::get('/produk/{id}/{nama}', [DetailProdukController::class, 'show'])->name
 // Rute untuk tombol search
 Route::get('/home', [SearchController::class, 'index'])->name('home');
 Route::get('/search', [SearchController::class, 'search'])->name('produk.search');
+
+
