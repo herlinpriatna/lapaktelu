@@ -10,6 +10,7 @@
     @include('includes.stylenavbar')
     @include('includes.font')
     @include('includes.bootstrap')
+    <link rel="stylesheet" href="css/kategori.css">
 </head>
 <body>
     @include('includes.navbar')

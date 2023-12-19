@@ -1,0 +1,83 @@
+/* === NAVIGASI === */
+body{
+    font-family: sans-serif;
+}
+/* responsif Navbar */
+@media(max-width: 991px){
+    .navbar .sidebar {
+        background-color: #3570D6;
+    }
+}
+
+.navbar{
+    background-color: #3570D6;
+}
+
+
+/* Tulisan lapak telu */
+.navbar .navbar-brand{
+    color: rgb(255, 255, 255); 
+    font-family: sans-serif;
+}
+
+/* search bar */
+#search{
+    width: 350px;
+}
+
+/* Upload dan Masuk */
+#upload-login{
+    font-family: sans-serif;
+    color: #3570D6;
+}
+
+.lihat-semua{
+    font-size: 24px;
+    text-decoration: none;
+}
+
+/* === BODY === */
+/* Slider */
+.slider{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* position: relative;
+    left: 50px; */
+
+    padding-bottom: 30px;
+}
+
+/* Nama dan kategori bagian pertama */
+.nama-kategori-awal{
+    padding-top: 150px;
+    padding-inline: 50px;
+}
+
+/* Nama kategori default */
+.nama-kategori{
+    padding-top: 10px;
+    padding-inline: 50px;
+}
+
+.scroll-horizontal{
+    border: 1px black;
+    max-width: 1350px;
+    display: flex;
+    overflow-x: auto;
+}
+
+/* #scroll-horizontal::-webkit-scrollbar{
+    width: 0;
+} */
+
+.sroll-horizontal .item{
+    min-width: 110px;
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+    background-color: #ddd;
+    margin-right: 2px;
+}
+

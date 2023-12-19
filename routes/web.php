@@ -37,7 +37,7 @@ Route::prefix('home')->name('home.')->group(function(){
     Route::get('detailkategori', [HomeController::class,'detailKategori'])->name('detail');
 }); 
 Route::get('/', function () {
-    return view("home");
+    return view("kategori");
 });
 
 // //route home
