@@ -34,7 +34,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //route halaman home
 Route::get('/home', [HomeController::class,'index'])->name('home');
-Route::get('/home/{slug}', [KategoriController::class, 'show'])->name('kategori.show');
+Route::get('/kategori/{slug}', [KategoriController::class, 'show'])->name('kategori.show');
 
 
 
@@ -66,4 +66,5 @@ Route::get('/search', [SearchController::class, 'search'])->name('produk.search'
 
 
 // rute profil
-Route::get('/profil', [ProfilController::class, 'index'])->name("profil");
+Route::get('/profil', [ProfilController::class, 'showProfil'])->name('profil');
+Route::get('/profil/{id}', [ProfilController::class, 'showUserProfil'])->name('profil.user');

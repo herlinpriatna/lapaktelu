@@ -15,7 +15,7 @@
 
     <div class="d-flex justify-content-between">
         <div class="text-md-start">
-            <button type="button" class="btn btn-lg btn-outline-primary">{{ $kategori->name }}</button>
+            <a href="{{ route('kategori.show', ['slug' => '$kategori->slug']) }}" class="btn btn-lg btn-outline-primary mb-3">{{ $kategori->name }}</a>
         </div>
         <div class="text-md-end">
             <button type="button" class="btn btn-lg btn-outline-dark" data-bs-toggle="modal" data-bs-target="#bagikan"><i class="fas fa-share"></i> Bagikan</button>
@@ -23,9 +23,9 @@
         </div>
     </div>
 
-    <div style="line-height: 25px">
-        <h5 class="card-title">{{ $produk->nama }}</h5>
-        <p class="card-text">Rp{{ $produk->harga }}</p>
+    <div style="line-height: 45px">
+        <h5 class="card-title fs-3">{{ $produk->nama }}</h5>
+        <p class="card-text fs-5">Rp{{ $produk->harga }}</p>
     </div>
 
     <div class="mt-4">
@@ -46,14 +46,23 @@
 
     <div class="box-profil d-flex justify-content-between p-3 align-items-center border rounded my-4">
         <div class="profil d-flex align-items-center">
+            @if($user->fotoProfil ===  NULL)
+            <img src="{{ url('img/profile-undefined.png') }}" alt="" class="me-3 img-fluid rounded-circle" style="width: 80px; height: 80px" />
+            <div class="text">
+                <p class="m-0 fs-4 fw-bold">{{ $user->namalengkap }}</p>
+                <p class="m-0 fs-5">{{ $user->username }}</p>
+                <p class="m-0 fs-5">{{ $user->alamat }}</p>
+            </div>
+            @else
             <img src="{{ asset('images/' . $user->fotoProfil) }}" alt="" class="me-3 img-fluid" style="width: 80px; height: 80px" />
             <div class="text">
                 <p class="m-0 fs-4 fw-bold">{{ $user->namalengkap }}</p>
                 <p class="m-0 fs-5">{{ $user->username }}</p>
                 <p class="m-0 fs-5">{{ $user->alamat }}</p>
             </div>
+            @endif
         </div>
-        <a href="#" class="btn btn-primary my-3 fw-bold me-3" style="width: 120px; height: 50px; background-color: #3570d6; display: flex; align-items: center; justify-content: center">Lihat Profil</a>
+        <a href="{{ route('profil.user', ['id' => $user->id] ) }}" class="btn btn-primary my-3 fw-bold me-3" style="width: 120px; height: 50px; background-color: #3570d6; display: flex; align-items: center; justify-content: center">Lihat Profil</a>
     </div>
 
     <p class="fs-2 fw-bold py-2">Deskripsi</p>
