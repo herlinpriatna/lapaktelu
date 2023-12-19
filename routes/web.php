@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -26,10 +27,14 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('store');
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
-Route::get('/home', [HomeController::class,'index'])->name('home');
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+//route halaman home
+Route::get('/home', [HomeController::class,'index'])->name('home');
+Route::get('/home/{slug}', [KategoriController::class, 'show'])->name('kategori.show');
+
 
 
 Route::get('/', function () {
@@ -57,5 +62,6 @@ Route::get('/produk/{id}/{nama}', [DetailProdukController::class, 'show'])->name
 // Rute untuk tombol search
 Route::get('/home', [SearchController::class, 'index'])->name('home');
 Route::get('/search', [SearchController::class, 'search'])->name('produk.search');
+
 
 

@@ -41,7 +41,7 @@
         <a href="" class="btn btn-link text-decoration-none">Lihat Semua</a>
       </div>
       <div class="card-item">
-        <a href="" class="text-decoration-none">
+        <a href="{{ route('kategori.show', ['slug' => 'pakaian-wanita']) }}" class="text-decoration-none">
           <div class="card p-1 card-kategori m-3 shadow" style="width: 8rem; align-items: center">
             <img src="{{url('img/icon-pakaian-wanita.png')}}" class="card-img mt-2 img-fluid" style="max-width: 50px"/>
             <div class="card-body">
@@ -51,7 +51,7 @@
         </a>
       </div>
       <div class="card-item">
-        <a href="" class="text-decoration-none">
+        <a href="{{ route('kategori.show', ['slug' => 'pakaian-pria']) }}" class="text-decoration-none">
           <div class="card p-1 card-kategori m-3 shadow" style="width: 8rem; align-items: center">
             <img src="img/icon-pakaian-pria.png" class="card-img mt-2" style="max-width: 50px" />
             <div class="card-body">
@@ -61,7 +61,7 @@
         </a>
       </div>
       <div class="card-item">
-        <a href="" class="text-decoration-none">
+        <a href="{{ route('kategori.show', ['slug' => 'elektronik']) }}" class="text-decoration-none">
           <div class="card p-1 card-kategori m-3 shadow" style="width: 8rem; align-items: center">
             <img src="img/icon-elektronik.png" class="card-img mt-2" style="max-width: 50px"/>
             <div class="card-body">
@@ -71,7 +71,7 @@
         </a>
       </div>
       <div class="card-item">
-        <a href="" class="text-decoration-none">
+        <a href="{{ route('kategori.show', ['slug' => 'tas']) }}" class="text-decoration-none">
           <div class="card p-1 card-kategori m-3 shadow" style="width: 8rem; align-items: center">
             <img src="{{url('img/icon-tas.png')}}" class="card-img mt-2"  style="max-width: 50px"/>
             <div class="card-body">
@@ -81,7 +81,7 @@
         </a>
       </div>
       <div class="card-item">
-        <a href="" class="text-decoration-none">
+        <a href="{{ route('kategori.show', ['slug' => 'Sepatu']) }}" class="text-decoration-none">
           <div class="card p-1 card-kategori m-3 shadow" style="width: 8rem; align-items: center">
             <img src="{{url('img/icon-sepatu.png')}}" class="card-img mt-2" style="max-width: 50px" />
             <div class="card-body">
@@ -91,7 +91,7 @@
         </a>
       </div>
       <div class="card-item">
-        <a href="" class="text-decoration-none">
+        <a href="{{ route('kategori.show', ['slug' => 'smartphone']) }}" class="text-decoration-none">
           <div class="card p-1 card-kategori m-3 shadow" style="width: 8rem; align-items: center">
             <img src="{{url('img/icon-smartphone.png')}}" class="card-img mt-2" style="max-width: 50px"/>
             <div class="card-body">
@@ -101,7 +101,7 @@
         </a>
       </div>
       <div class="card-item">
-        <a href="" class="text-decoration-none">
+        <a href="{{ route('kategori.show', ['slug' => 'buku']) }}" class="text-decoration-none">
           <div class="card p-1 card-kategori m-3 shadow" style="width: 8rem; align-items: center">
             <img src="img/icon-atk.png" class="card-img mt-2" style="max-width: 50px" />
             <div class="card-body">
@@ -111,7 +111,7 @@
         </a>
       </div>
       <div class="card-item">
-        <a href="" class="text-decoration-none">
+        <a href="{{ route('kategori.show', ['slug' => 'aksesoris']) }}" class="text-decoration-none">
           <div class="card p-1 card-kategori m-3 shadow" style="width: 8rem; align-items: center">
             <img src="{{url('img/icon-aksesoris.png')}}" class="card-img mt-2" style="max-width: 50px" />
             <div class="card-body">
