@@ -129,7 +129,7 @@
       @foreach(App\Models\Produk::all() as $product)
         @if ($product->status == 'accepted')
             <div class="produk-item">
-              <a href="detail_produk.html" class="text-decoration-none">
+              <a href="{{route('produk.show', ['id' => $product->id, 'nama' => $product->nama])}}" class="text-decoration-none">
                 <div class="card m-3" style="width: 18rem">
                   <img src="{{ asset('images/' . $product->gambar) }}" class="card-img-top" style="max-height: 300px" />
                   <div class="card-body">
