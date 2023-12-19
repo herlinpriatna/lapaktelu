@@ -58,7 +58,7 @@ Route::post('/admin/cancel-product/{productId}', [AdminController::class, 'cance
 Route::get('/home', [HomeController::class, 'showConfirmedProducts'])->name('home.show.confirmed.products');
 
 // Rute untuk menampilkan halaman detail produk
-Route::get('/produk/{nama}', [DetailProdukController::class, 'show'])->name('produk.show');
+Route::get('/produk/{id}/{nama}', [DetailProdukController::class, 'show'])->name('produk.show');
 
 // Rute untuk tombol search
 Route::get('/home', [SearchController::class, 'index'])->name('home');
