@@ -2,12 +2,6 @@
 @section('judul', 'Update Produk')
 
 @section('content')
-
-
-<!-- {{ route('jual.edit', $produk->id) }} -->
-
-
-
 <div class="container-flex justify-content-center align-items-center pt-5" style="padding: 70px 70px 0px 70px;">
         <div class="row">
             <div class="col-md-6 justify-content-center align-items-center">
