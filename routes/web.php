@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JualController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DetailProdukController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 
@@ -62,3 +63,6 @@ Route::post('/admin/confirm-product/{productId}', [AdminController::class, 'conf
 
 // Rute untuk menampilkan produk yang telah dikonfirmasi di halaman home
 Route::get('/home', [HomeController::class, 'showConfirmedProducts'])->name('home.show.confirmed.products');
+
+// Rute untuk menampilkan halaman detail produk
+Route::get('/produk/{id}', [DetailProdukController::class, 'show'])->name('produk.show');
