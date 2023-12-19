@@ -29,7 +29,7 @@
                 <ul class="navbar-nav justify-content-center align-item-center flex-grow-1 pe-3">
                     <form action="{{ route('produk.search') }}" method="GET">
                         <div class="input-group">
-                            <button class="input-group-text" type="submit"><img src="img/material-symbols-search.png" alt=""></button>
+                            <button class="input-group-text" type="submit"><img src="{{ url('img/icon-cari.png') }}" alt=""></button>
                             <input class="form-control" type="text" name="query" placeholder="Cari">
                         </div>
                     </form>
