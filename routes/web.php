@@ -31,26 +31,10 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-//route home
-Route::prefix('home')->name('home.')->group(function(){
-    Route::get('home', [HomeController::class,'index']);
-    //Route::get('jual', [HomeController::class,'jual'])->name('jual');
-    //Route::get('login', [HomeController::class,'login'])->name('login');
-    Route::get('detailkategori', [HomeController::class,'detailKategori'])->name('detail');
-}); 
+
 Route::get('/', function () {
-    return view("kategori");
+    return view("home");
 });
-
-// //route home
-// Route::get('/home', function () {
-//     return view('home');
-// });
-
-// //route jual
-// Route::get('/jual', function () {
-//     return view('jual');
-// });
 
 
 //route jual
