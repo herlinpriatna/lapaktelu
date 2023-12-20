@@ -38,7 +38,7 @@
     <section class="container d-flex justify-content-between align-item-center text-center card-group">
       <div class="container d-flex justify-content-between">
         <h1>Kategori</h1>
-        <a href="" class="btn btn-link text-decoration-none">Lihat Semua</a>
+        <a href="{{ route('kategoriAll.show') }}" class="btn btn-link text-decoration-none">Lihat Semua</a>
       </div>
       <div class="card-item">
         <a href="{{ route('kategori.show', ['slug' => 'pakaian-wanita']) }}" class="text-decoration-none">

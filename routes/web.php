@@ -35,7 +35,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 //route halaman home
 Route::get('/home', [HomeController::class,'index'])->name('home');
 Route::get('/kategori/{slug}', [KategoriController::class, 'show'])->name('kategori.show');
-
+Route::get('/home/lihatsemua', [KategoriController::class, 'showAllKategori'])->name('kategoriAll.show');
 
 
 Route::get('/', function () {

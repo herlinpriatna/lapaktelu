@@ -10,6 +10,11 @@ class KategoriController extends Controller
     public function index(){
         return view('kategorislug');
     }
+
+    public function showAllKategori(){
+        $kategori = Kategori::all();
+        return view('kategori', ['kategori' => $kategori]);
+    }
     public function show($slug)
     {
         // Mengambil data kategori berdasarkan slug
