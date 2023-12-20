@@ -83,5 +83,5 @@ Route::delete('/jual/hapus/{id}', [JualController::class, 'destroy'])->name('jua
 
 
 // rute simpan produk
-Route::post('/{id}', [SimpanController::class, 'create'])->name('simpan.create');
+Route::post('/produk/{id}/simpan', [SimpanController::class, 'create'])->name('simpan.create');
 Route::get('/tersimpan', [SimpanController::class, 'show'])->name('simpan.show');

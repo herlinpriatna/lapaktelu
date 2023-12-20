@@ -37,9 +37,12 @@
             <div>
                 <button type="button" class="btn btn-lg btn-outline-secondary text-start" style="width: auto" disabled>{{ $kondisi->name }}</button>
             </div>
-            <div class="">
+            <div class="d-flex">
                 <a href="https://wa.me/{{$user->nomorHP}}" type="button" class="btn btn-lg btn-primary fw-bold">Chat Sekarang</a>
-                <a href="#" type="button" class="btn btn-lg btn-outline-primary ms-1 fw-bold">Simpan</a>
+                <form action="{{ route('simpan.create', $produk->id) }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-lg btn-outline-primary ms-1 fw-bold">Simpan</button>
+                </form>
             </div>
         </div>
     </div>
