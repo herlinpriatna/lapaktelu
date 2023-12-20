@@ -5,23 +5,23 @@
 @section('content')
     <div class="container-flex justify-content-center align-items-center pt-5" style="padding: 70px 70px 0px 70px;">
         <div class="row">
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <div class="col-md-6 justify-content-center align-items-center">
-                @if(session('success'))
-                    <div style="color: green;">
-                        {{ session('success') }}
-                    </div>
-                @endif
-
-                @if($errors->any())
-                    <div style="color: red;">
-                        <ul>
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
                 <form action="{{ route('jual') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3 mt-5">
