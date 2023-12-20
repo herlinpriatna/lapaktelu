@@ -54,7 +54,7 @@
 
             @if(Auth::id() == $user->id)
             <li class="nav-item">
-                <a href="editProfil.html" class="nav-link link-dark ps-0" aria-current="page">
+                <a href="{{ route('profil.update', ['id' => $user->id]) }}" class="nav-link link-dark ps-0" >
                     Edit Profil
                 </a>
             </li>
@@ -64,9 +64,10 @@
                 </a>
             </li>
             <li>
-                <a href="home_page.html" class="nav-link link-dark ps-0" data-bs-toggle="modal" data-bs-target="#logout">
-                    Logout
-                </a>
+              <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-primary">Logout</button>
+              </form>
             </li>
           @endif
            
@@ -78,7 +79,9 @@
         <h2>List Barang</h2>
         <div class="d-flex justify-content-between">
         @foreach ($produk as $prod)
+        @if($prod->status == 'accepted')
           @if($prod->user_id === $user->id)
+
               <div class="produk-item">
                 <div class="card m-3" style="width: 18rem">
                   <img src="{{ asset('images/' . $prod->gambar) }}" class="card-img-top" alt="" />
@@ -93,6 +96,7 @@
                   </div>
                 </div>
               </div>
+              @endif
               @endif
               @endforeach
             </div>
