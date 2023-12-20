@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DetailProdukController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SimpanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,3 +79,7 @@ Route::post('/profil/{id}/update', [ProfilController::class, 'update'])->name('p
 // rute edit produk
 Route::get('/jual/edit/{id}', [JualController::class, 'edit'])->name('jual.edit');
 Route::post('/jual/update/{id}', [JualController::class, 'update'])->name('jual.update');
+
+// rute simpan produk
+Route::post('/{id}', [SimpanController::class, 'create'])->name('simpan.create');
+Route::get('/tersimpan', [SimpanController::class, 'show'])->name('simpan.show');
