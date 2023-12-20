@@ -31,40 +31,54 @@ class ProfilController extends Controller
     public function showEditProfil()
     {
         $user = Auth::user();
+        $produk = Produk::where('user_id', $user->id)->get();
 
+        return view('editprofil', compact('user', 'produk'));
+    }
+
+    public function edit($id)
+    {
+        // Retrieve the user based on the provided ID
+        $user = User::findOrFail($id);
+        // $produk = Produk::where('user_id', $id)->get();
+
+        // Pass the user data to the view
         return view('editprofil', compact('user'));
     }
 
-
-    public function updateProfile(Request $request)
+    public function update(Request $request, $id)
     {
         // Validate the form data
         $request->validate([
-            'fotoProfil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'namalengkap' => 'nullable|string|max:255',
-            'username' => 'required|string|max:255|unique:users,username,' . Auth::id(),
-            'email' => 'required|email|max:255|unique:users,email,' . Auth::id(),
-            'alamat' => 'nullable|string',
-            'nomorHP' => 'nullable|string',
+            'namalengkap' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'alamat' => 'nullable|string|max:255',
+            'nomorHP' => 'nullable|numeric',
+            'fotoProfil' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust this based on your image requirements
         ]);
 
-        // Update the user profile
-        Auth::user()->update([
-            'namalengkap' => $request->input('namalengkap'),
-            'username' => $request->input('username'),
-            'email' => $request->input('email'),
-            'alamat' => $request->input('alamat'),
-            'nomorHP' => $request->input('nomorHP'),
-        ]);
+        // Retrieve the user based on the provided ID
+        $user = User::findOrFail($id);
 
-        // Handle profile picture upload if needed
-        if ($request->hasFile('fotoProfil')) {
-            $path = $request->file('fotoProfil')->store('profile_images', 'public');
-            $userData['fotoProfil'] = $path;
+        $user->namalengkap = $request->get('namalengkap');
+        $user->username = $request->get('username');
+        $user->email = $request->get('email');
+        $user->alamat = $request->get('alamat');
+        $user->nomorHP = $request->get('nomorHP');
+
+
+        // Handle file upload if a new profile picture is provided
+        if ($request->has('fotoProfil')) {
+            $imageName = time().'.'.$request->fotoProfil->extension();
+            $request->fotoProfil->move(public_path('images'), $imageName);
+            $user->fotoProfil = $imageName;
         }
 
-        Auth::user()->update($userData);
+        // Save the changes
+        $user->save();
+
         // Redirect back with a success message
-        return redirect()->back()->with('success', 'Profile updated successfully.');
+        return redirect()->route('profil.edit', ['id' => $user->id])->with('success', 'Profile updated successfully');
     }
 }

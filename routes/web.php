@@ -68,7 +68,11 @@ Route::get('/search', [SearchController::class, 'search'])->name('produk.search'
 // rute profil
 Route::get('/profil', [ProfilController::class, 'showProfil'])->name('profil');
 Route::get('/profil/{id}', [ProfilController::class, 'showUserProfil'])->name('profil.user');
-Route::get('/profil/editprofil/{id}', [ProfilController::class, 'showEditProfil'])->name('profil.update');
+// Display the form to edit the user profile
+Route::get('/profil/{id}/edit', [ProfilController::class, 'edit'])->name('profil.edit');
+
+// Handle the form submission to update the user profile
+Route::post('/profil/{id}/update', [ProfilController::class, 'update'])->name('profil.update');
 
 
 // rute edit produk

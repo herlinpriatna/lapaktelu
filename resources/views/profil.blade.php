@@ -54,7 +54,7 @@
 
             @if(Auth::id() == $user->id)
             <li class="nav-item">
-                <a href="{{ route('profil.update', ['id' => $user->id]) }}" class="nav-link link-dark ps-0" >
+                <a href="{{ route('profil.edit', ['id' => $user->id]) }}" class="nav-link link-dark ps-0" >
                     Edit Profil
                 </a>
             </li>
