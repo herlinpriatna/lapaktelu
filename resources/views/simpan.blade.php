@@ -77,21 +77,22 @@
         </div>
     </div>
     <div class="container col-md-6">
-        <h2>Edit Profil</h2>
+        <h2>Produk Tersimpan</h2>
         <div class="d-flex justify-content-between">
             @forelse ($simpanRecords as $simpan)
+            @if ($simpan->produk)
             <div class="produk-item">
                 <div class="card m-3" style="width: 18rem">
-                    @if ($simpan->produk)
                     <img src="{{ asset('images/' . $simpan->produk->gambar) }}" class="card-img-top" style="max-height: 300px" />
                     <div class="card-body">
                         <h5 class="card-title">{{ $simpan->produk->nama }}</h5>
                         <p class="card-text">Rp{{ $simpan->produk->harga }}</p>
                     </div>
-                    @endif
                 </div>
-                </a>
             </div>
+            @else
+            <p>Tidak ada produk yang kamu simpan</p>
+            @endif
             @empty
             <p>Tidak ada produk yang kamu simpan</p>
             @endforelse

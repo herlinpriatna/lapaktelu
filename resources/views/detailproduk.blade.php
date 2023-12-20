@@ -30,7 +30,7 @@
 
     <div class="mt-4">
         <div class="pt-3 pb-2 fs-5">
-            <img src="img/icon-kondisi.png" alt="" />
+            <img src="{{url('img/icon-kondisi.png')}}" alt="" />
             Kondisi
         </div>
         <div class="d-flex justify-content-between">
@@ -79,14 +79,14 @@
                 <p class="text-center fs-2 fw-bold">Bagikan</p>
                 <p class="text-center fs-5 fst-italic">"Hayu, bagikeun supados seueur anu terang"</p>
                 <div class="container d-flex">
-                    <a href="https://wa.me/" target="_blank" class="btn text-dark"><img src="img/icon-whatsapp.png" alt="WhatsApp" height="65px" class="pb-2" /> WhatsApp</a>
-                    <a href="https://www.instagram.com/" target="_blank" class="btn text-dark"><img src="img/icon-instagram.png" alt="Instagram" height="65px" class="pb-2" /> Instagram</a>
-                    <a href="https://www.facebook.com/" target="_blank" class="btn text-dark"><img src="img/icon-facebook.png" alt="Facebook" height="65px" class="pb-2" />Facebook</a>
-                    <a href="https://twitter.com/" target="_blank" class="btn text-dark"><img src="img/icon-twitter.png" alt="Twitter" height="65px" class="pb-2" />Twitter </a>
+                    <a href="https://wa.me/" target="_blank" class="btn text-dark"><img src="{{url('img/icon-whatsapp.png')}}" alt="WhatsApp" height="65px" class="pb-2" /> WhatsApp</a>
+                    <a href="https://www.instagram.com/" target="_blank" class="btn text-dark"><img src="{{url('img/icon-instagram.png')}}" alt="Instagram" height="65px" class="pb-2" /> Instagram</a>
+                    <a href="https://www.facebook.com/" target="_blank" class="btn text-dark"><img src="{{url('img/icon-facebook.png')}}" alt="Facebook" height="65px" class="pb-2" />Facebook</a>
+                    <a href="https://twitter.com/" target="_blank" class="btn text-dark"><img src="{{url('img/icon-twitter.png')}}" alt="Twitter" height="65px" class="pb-2" />Twitter </a>
                 </div>
                 <div class="container border border-secondary rounded-pill d-flex justify-content-between mt-3" style="width: 500px; height: 48px">
                     <p class="kolom text-center fs-6 align-item-center text-secondary py-2"></p>
-                    <button id="copy-button" class="btn btn-link ms-2"><i class="far fa-copy fa-2x"></i></button>
+                    <button id="copy-button" class="btn btn-link ms-2"><img src="{{url('img/icon-copy.png')}}" alt="Salin" width="25"></button>
                 </div>
             </div>
         </div>
@@ -129,5 +129,5 @@
     </div>
 </div>
 <!-- Akhir Modal Laporkan -->
-<script src="{{url('js/detailProduct.js')}}"></script>
+<script src="/js/detailproduk.js" defer></script>
 @endsection
