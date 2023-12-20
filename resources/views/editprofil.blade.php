@@ -54,20 +54,22 @@
 
           @if(Auth::id() == $user->id)
           <li class="nav-item">
-                <a href="{{ route('profil.edit', ['id' => $user->id]) }}" class="nav-link link-dark ps-0" >
-                    Edit Profil
-                </a>
-          </li>
-          <li>
-              <a href="produk_tersimpan.html" class="nav-link link-dark ps-0">
-                  Tersimpan
-              </a>
-          </li>
-          <li>
-              <a href="home_page.html" class="nav-link link-dark ps-0" data-bs-toggle="modal" data-bs-target="#logout">
-                  Logout
-              </a>
-          </li>
+          <a href="{{ route('profil.edit', ['id' => $user->id]) }}" class="nav-link link-dark ps-0 text-primary">
+            Edit Profil
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('simpan.show') }}" class="nav-link link-dark ps-0">
+
+            Tersimpan
+          </a>
+        </li>
+        <li>
+          <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-primary">Logout</button>
+          </form>
+        </li>
         @endif
          
         </ul>

@@ -61,14 +61,16 @@
                     </a>
                 </li>
                 <li>
-                    <a href="produk_tersimpan.html" class="nav-link link-dark ps-0">
+                    <a href="{{ route('simpan.show') }}" class="nav-link link-dark ps-0 text-primary">
+
                         Tersimpan
                     </a>
                 </li>
                 <li>
-                    <a href="home_page.html" class="nav-link link-dark ps-0" data-bs-toggle="modal" data-bs-target="#logout">
-                        Logout
-                    </a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Logout</button>
+                    </form>
                 </li>
                 @endif
 

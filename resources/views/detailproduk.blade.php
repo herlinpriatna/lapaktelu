@@ -40,8 +40,8 @@
             <div class="d-flex">
                 <a href="https://wa.me/{{$user->nomorHP}}" type="button" class="btn btn-lg btn-primary fw-bold">Chat Sekarang</a>
                 <form action="{{ route('simpan.create', $produk->id) }}" method="post">
-                @csrf
-                <button type="submit" class="btn btn-lg btn-outline-primary ms-1 fw-bold">Simpan</button>
+                    @csrf
+                    <button type="submit" class="btn btn-lg btn-outline-primary ms-1 fw-bold">Simpan</button>
                 </form>
             </div>
         </div>
@@ -49,7 +49,7 @@
 
     <div class="box-profil d-flex justify-content-between p-3 align-items-center border rounded my-4">
         <div class="profil d-flex align-items-center">
-            @if($user->fotoProfil ===  NULL)
+            @if($user->fotoProfil === NULL)
             <img src="{{ url('img/profile-undefined.png') }}" alt="" class="me-3 img-fluid rounded-circle" style="width: 80px; height: 80px" />
             <div class="text">
                 <p class="m-0 fs-4 fw-bold">{{ $user->namalengkap }}</p>
@@ -95,6 +95,25 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+        var currentURL = window.location.href;
+
+        $(".kolom").text(currentURL);
+
+        $("#copy-button").click(function() {
+            var copyText = document.querySelector(".kolom");
+            var range = document.createRange();
+            range.selectNode(copyText);
+            window.getSelection().addRange(range);
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();
+        });
+    });
+</script>
 <!-- Akhir Modal Bagikan-->
 
 <!-- Awal Modal Laporkan -->
@@ -131,6 +150,22 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script>
+    document.getElementById("submit-button").addEventListener("click", function() {
+        var selectedOption = document.querySelector(
+            'input[name="alasan-laporan"]:checked'
+        );
+
+        if (selectedOption) {
+            alert("Laporan Anda telah dikirimkan");
+        } else {
+            alert("Silahkan pilih alasan lapor");
+        }
+    });
+</script>
 <!-- Akhir Modal Laporkan -->
-<script src="/js/detailproduk.js" defer></script>
+
 @endsection
