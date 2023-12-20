@@ -87,7 +87,7 @@
                     <div class="d-flex justify-content-between">
                       <p class="card-text">{{ $prod->harga }}</p>
                       @if(Auth::user()->id == $user->id)
-                        <a href="" class="bi bi-pencil-fill" style="text-decoration: none"> Edit</a>
+                        <a href="{{ route('jual.edit', $prod->id) }}" class="bi bi-pencil-fill" style="text-decoration: none"> Edit</a>
                       @endif
                     </div>
                   </div>
