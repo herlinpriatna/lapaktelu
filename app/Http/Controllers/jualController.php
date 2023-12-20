@@ -16,14 +16,16 @@ class JualController extends Controller
         return view('jual');
     }
 
-    public function create(){
+    public function create()
+    {
         $kategoris = Kategori::all();
         $kondisis = Kondisi::all();
 
         return view('jual', compact('kategoris', 'kondisis'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
             'nama' => 'required',
             'deskripsi' => 'required',
@@ -32,8 +34,8 @@ class JualController extends Controller
             'kondisi' => 'required|exists:kondisis,id',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        
-        $imageName = time().'.'.$request->gambar->extension();
+
+        $imageName = time() . '.' . $request->gambar->extension();
         $request->gambar->move(public_path('images'), $imageName);
 
         $product = new Produk([
@@ -81,7 +83,7 @@ class JualController extends Controller
 
         // Handle image update if a new image is provided
         if ($request->has('gambar')) {
-            $imageName = time().'.'.$request->gambar->extension();
+            $imageName = time() . '.' . $request->gambar->extension();
             $request->gambar->move(public_path('images'), $imageName);
             $product->gambar = $imageName;
         }
@@ -89,5 +91,19 @@ class JualController extends Controller
         $product->save();
 
         return redirect('/profil')->with('success', 'Produk berhasil diupdate!');
+    }
+
+    public function destroy($id)
+    {
+        $product = Produk::findOrFail($id);
+
+        // Hapus gambar terkait dari direktori jika ada
+        if (file_exists(public_path('images/' . $product->gambar))) {
+            unlink(public_path('images/' . $product->gambar));
+        }
+
+        $product->delete();
+
+        return redirect('/profil')->with('success', 'Produk berhasil dihapus!');
     }
 }

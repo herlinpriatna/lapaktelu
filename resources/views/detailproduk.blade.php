@@ -38,7 +38,7 @@
                 <button type="button" class="btn btn-lg btn-outline-secondary text-start" style="width: auto" disabled>{{ $kondisi->name }}</button>
             </div>
             <div class="">
-                <a href="#" type="button" class="btn btn-lg btn-primary fw-bold">Chat Sekarang</a>
+                <a href="https://wa.me/{{$user->nomorHP}}" type="button" class="btn btn-lg btn-primary fw-bold">Chat Sekarang</a>
                 <a href="#" type="button" class="btn btn-lg btn-outline-primary ms-1 fw-bold">Simpan</a>
             </div>
         </div>

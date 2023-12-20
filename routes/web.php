@@ -79,6 +79,8 @@ Route::post('/profil/{id}/update', [ProfilController::class, 'update'])->name('p
 // rute edit produk
 Route::get('/jual/edit/{id}', [JualController::class, 'edit'])->name('jual.edit');
 Route::post('/jual/update/{id}', [JualController::class, 'update'])->name('jual.update');
+Route::delete('/jual/hapus/{id}', [JualController::class, 'destroy'])->name('jual.destroy');
+
 
 // rute simpan produk
 Route::post('/{id}', [SimpanController::class, 'create'])->name('simpan.create');
