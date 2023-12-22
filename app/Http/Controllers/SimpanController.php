@@ -31,4 +31,13 @@ class SimpanController extends Controller
 
         return view('simpan', compact('simpanRecords', 'user'));
     }
+
+    public function destroy($id)
+    {
+        $simpan = Simpan::findOrFail($id);
+
+        $simpan->delete();
+
+        return redirect()->back()->with('success', 'Produk berhasil dihapus!');
+    }
 }

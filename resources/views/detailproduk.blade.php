@@ -6,16 +6,25 @@
 
 <div class="container pt-4 mt-4">
 
-
-    <div class="row pt-3 mt-3">
-        <div class="col py-3 my-3">
-            <img src="{{ asset('images/' . $produk->gambar) }}" alt="Foto Produk" class="rounded img-fluid" style="height: 100%; width: 100%" />
+    <div id="produkCarousel" class="carousel slide my-4" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ asset('images/' . $produk->gambar) }}" alt="Foto Produk" class="rounded img-fluid" style="height: 100%; width: 100%" />
+            </div>
         </div>
+        <a class="carousel-control-prev" href="#produkCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+        </a>
+        <a class="carousel-control-next" href="#produkCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+        </a>
     </div>
 
     <div class="d-flex justify-content-between">
         <div class="text-md-start">
-            <a href="{{ route('kategori.show', ['slug' => '$kategori->slug']) }}" class="btn btn-lg btn-outline-primary mb-3">{{ $kategori->name }}</a>
+            <a href="{{ route('kategori.show', ['slug' => $kategori->name]) }}" class="btn btn-lg btn-outline-primary mb-3">{{ $kategori->name }}</a>
         </div>
         <div class="text-md-end">
             <button type="button" class="btn btn-lg btn-outline-dark" data-bs-toggle="modal" data-bs-target="#bagikan"><i class="fas fa-share"></i> Bagikan</button>
@@ -39,10 +48,31 @@
             </div>
             <div class="d-flex">
                 <a href="https://wa.me/{{$user->nomorHP}}" type="button" class="btn btn-lg btn-primary fw-bold">Chat Sekarang</a>
+
+                @php
+                    $isProductSaved = false;
+
+                    foreach (App\Models\Simpan::all() as $product) {
+                        if ($product->user_id == auth()->id() && $product->produk_id == $produk->id) {
+                            $isProductSaved = true;
+                            break;
+                        }
+                    }
+                @endphp
+
+                @if ($isProductSaved)
+                <form action="{{ route('simpan.destroy', $product->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-lg btn-outline-primary ms-1 fw-bold">Batal Simpan</button>
+                </form>
+                @else
                 <form action="{{ route('simpan.create', $produk->id) }}" method="post">
                     @csrf
                     <button type="submit" class="btn btn-lg btn-outline-primary ms-1 fw-bold">Simpan</button>
                 </form>
+                @endif
+
             </div>
         </div>
     </div>

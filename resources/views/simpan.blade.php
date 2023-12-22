@@ -84,6 +84,7 @@
             @forelse ($simpanRecords as $simpan)
             @if ($simpan->produk)
             <div class="produk-item">
+            <a href="{{route('produk.show', ['id' => $simpan->produk->id, 'nama' => $simpan->produk->nama])}}" class="text-decoration-none">
                 <div class="card m-3" style="width: 18rem">
                     <img src="{{ asset('images/' . $simpan->produk->gambar) }}" class="card-img-top" style="max-height: 300px" />
                     <div class="card-body">

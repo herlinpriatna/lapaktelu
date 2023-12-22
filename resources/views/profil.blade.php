@@ -84,6 +84,7 @@
       @if($prod->user_id === $user->id)
 
       <div class="produk-item">
+      <a href="{{route('produk.show', ['id' => $prod->id, 'nama' => $prod->nama])}}" class="text-decoration-none">
         <div class="card m-3" style="width: 18rem">
           <img src="{{ asset('images/' . $prod->gambar) }}" class="card-img-top" alt="" />
           <div class="card-body">
