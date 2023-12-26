@@ -88,9 +88,9 @@
         <div class="card m-3" style="width: 18rem">
           <img src="{{ asset('images/' . $prod->gambar) }}" class="card-img-top" alt="" />
           <div class="card-body">
-            <h3 class="card-title">{{ $prod->nama }}</h3>
+            <h3 class="card-title text-dark">{{ $prod->nama }}</h3>
             <div class="d-flex justify-content-between">
-              <p class="card-text">{{ $prod->harga }}</p>
+              <p class="card-text text-dark">{{ $prod->harga }}</p>
               @if(Auth::user()->id == $user->id)
               <a href="{{ route('jual.edit', $prod->id) }}" class="bi bi-pencil-fill" style="text-decoration: none"> Edit</a>
               @endif
