@@ -7,7 +7,7 @@
 <img src="{{url('img/icon-notfound.png')}}" class="img-fluid mx-auto d-block pt-5" width="700" />
 @else
 @foreach($produkList as $product)
-@if ($product->status == 'accepted')
+@if ($product->status == 'accepted' || $product->status == 'reported')
 <div class="container produk-item pt-5">
     <h2 class="mb-4 mt-4">Hasil Pencarian</h1>
     <a href="{{route('produk.show', ['id' => $product->id, 'nama' => $product->nama])}}" class="text-decoration-none">

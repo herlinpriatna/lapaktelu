@@ -81,7 +81,7 @@
         </a>
       </div>
       <div class="card-item">
-        <a href="{{ route('kategori.show', ['slug' => 'Sepatu']) }}" class="text-decoration-none">
+        <a href="{{ route('kategori.show', ['slug' => 'sepatu']) }}" class="text-decoration-none">
           <div class="card p-1 card-kategori m-3 shadow" style="width: 8rem; align-items: center">
             <img src="{{url('img/icon-sepatu.png')}}" class="card-img mt-2" style="max-width: 50px" />
             <div class="card-body">
@@ -127,7 +127,7 @@
         <h1>Terbaru</h1>
       </div>
       @foreach(App\Models\Produk::all() as $product)
-        @if ($product->status == 'accepted')
+        @if ($product->status == 'accepted' || $product->status == 'reported')
             <div class="produk-item">
               <a href="{{route('produk.show', ['id' => $product->id, 'nama' => $product->nama])}}" class="text-decoration-none">
                 <div class="card m-3" style="width: 18rem">

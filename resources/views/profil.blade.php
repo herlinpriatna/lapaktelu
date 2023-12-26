@@ -80,7 +80,7 @@
     <h2>List Barang</h2>
     <div class="d-flex justify-content-between">
       @foreach ($produk as $prod)
-      @if($prod->status == 'accepted')
+      @if($prod->status == 'accepted' || $prod->status == 'reported')
       @if($prod->user_id === $user->id)
 
       <div class="produk-item">

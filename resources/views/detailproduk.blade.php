@@ -50,14 +50,14 @@
                 <a href="https://wa.me/{{$user->nomorHP}}" type="button" class="btn btn-lg btn-primary fw-bold">Chat Sekarang</a>
 
                 @php
-                    $isProductSaved = false;
+                $isProductSaved = false;
 
-                    foreach (App\Models\Simpan::all() as $product) {
-                        if ($product->user_id == auth()->id() && $product->produk_id == $produk->id) {
-                            $isProductSaved = true;
-                            break;
-                        }
-                    }
+                foreach (App\Models\Simpan::all() as $product) {
+                if ($product->user_id == auth()->id() && $product->produk_id == $produk->id) {
+                $isProductSaved = true;
+                break;
+                }
+                }
                 @endphp
 
                 @if ($isProductSaved)
@@ -152,29 +152,13 @@
         <div class="modal-content">
             <div class="modal-body">
                 <p class="text-center fs-2 fw-bold">Laporkan</p>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="alasan-laporan" id="produk-palsu" />
-                    <label class="form-check-label" for="produk-palsu"> Produk Palsu </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="alasan-laporan" id="produk-ilegal" />
-                    <label class="form-check-label" for="produk-ilegal"> Produk ilegal/dilarang </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="alasan-laporan" id="penipuan" />
-                    <label class="form-check-label" for="penipuan"> Indikasi penipuan </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="alasan-laporan" id="kata-tidak-pantas" />
-                    <label class="form-check-label" for="kata-tidak-pantas"> Mengandung kata yang tidak pantas </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="alasan-laporan" id="salah-kategori" />
-                    <label class="form-check-label" for="salah-kategori"> Salah kategori </label>
-                </div>
+                <p class="text-center fs-6">"Kamu yakin ingin melaporkan produk ini?"</p>
                 <div class="d-flex justify-content-between mt-4 px-3">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary" id="submit-button">Submit</button>
+                    <form action="{{ route('admin.report.product', $produk->id) }}" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -190,10 +174,8 @@
         );
 
         if (selectedOption) {
-            alert("Laporan Anda telah dikirimkan");
-        } else {
-            alert("Silahkan pilih alasan lapor");
-        }
+            $('#laporkan').modal('hide');
+        } 
     });
 </script>
 <!-- Akhir Modal Laporkan -->

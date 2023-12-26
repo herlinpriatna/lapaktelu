@@ -19,7 +19,7 @@
     <div class="slider d-flex justify-space-between">
         <section class="d-flex posisition scroll-horizontal">
             @foreach(App\Models\Produk::all() as $product)
-            @if ($product->status == 'accepted')
+            @if ($product->status == 'accepted'  || $product->status == 'reported')
             @if($product->kategori_id == $kate->id)
             <a href="">
                 <div class="produk-item">

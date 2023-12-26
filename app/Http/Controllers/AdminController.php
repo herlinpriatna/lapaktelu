@@ -52,5 +52,15 @@ class AdminController extends Controller
         }
     }
     
+    public function reportProduct($productId){
+        $product = Produk::findOrFail($productId);
+
+        if ($product) {
+            $product->status = 'reported';
+            $product->save();
+
+            return redirect()->back()->with('success', 'Produk berhasil dilaporkan!');
+        }
+    }
     
 }

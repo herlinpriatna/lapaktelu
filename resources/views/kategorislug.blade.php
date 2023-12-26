@@ -4,7 +4,7 @@
 <div class="container mt-5 pt-5">
     <h1 class="mt-5">{{ $kategori->name }}</h1>
     @foreach(App\Models\Produk::all() as $product)
-    @if ($product->status == 'accepted')
+    @if ($product->status == 'accepted' || $product->status == 'reported')
     @if($product->kategori->slug == $kategori->slug)
 
     <a href="">

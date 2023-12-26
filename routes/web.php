@@ -54,6 +54,7 @@ Route::post('/jual', [JualController::class, 'store'])->name('jual');
 Route::post('/admin/confirm-product/{productId}', [AdminController::class, 'confirmProduct'])->name('admin.confirm.product');
 Route::post('/admin/reject-product/{productId}', [AdminController::class, 'rejectProduct'])->name('admin.reject.product');
 Route::post('/admin/cancel-product/{productId}', [AdminController::class, 'cancelConfirm'])->name('admin.cancel.product');
+Route::post('/admin/report-product/{productId}', [AdminController::class, 'reportProduct'])->name('admin.report.product');
 
 // Rute untuk menampilkan produk yang telah dikonfirmasi di halaman home
 Route::get('/home', [HomeController::class, 'showConfirmedProducts'])->name('home.show.confirmed.products');
