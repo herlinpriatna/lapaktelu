@@ -50,8 +50,8 @@ class ProfilController extends Controller
     {
         // Validate the form data
         $request->validate([
-            'namalengkap' => 'required|string|max:255',
-            'username' => 'required|string|max:255',
+            'namalengkap' => 'required|string|min:6|max:255',
+            'username' => 'required|string|min:6|max:8',
             'email' => 'required|email|max:255',
             'alamat' => 'nullable|string|max:255',
             'nomorHP' => 'nullable|numeric',

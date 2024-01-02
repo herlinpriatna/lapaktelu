@@ -14,9 +14,9 @@ class RegisterController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'username' => 'required|string|min:6',
+            'username' => 'required|string|min:6|max:8',
             'email' => 'required|max:255|email|unique:users',
-            'password' => 'required|min:6|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+            'password' => 'required|min:6|max:8|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
         ],[
             'username.required' => 'Username harus mengandung minimal 6 karakter tanpa spasi',
             'email.required' => 'Email wajib diisi',
