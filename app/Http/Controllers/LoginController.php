@@ -16,7 +16,7 @@ class LoginController extends Controller
     {
         $credentials = $request->validate([
             'email' => 'required|max:255|email',
-            'password' => 'required|min:6|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+            'password' => 'required|min:6|max:8|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
         ],[
             'email.required' => 'Email wajib diisi',
             "password.required" => 'Password harus mengandung minimal 6 karakter berbeda terdiri dari huruf besar, kecil, angka dan simbol'
